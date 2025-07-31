@@ -33,7 +33,10 @@ jobs:
           python -m ipykernel install --user --name python3
 
       - name: Export environment variables
-        run: echo "GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> $GITHUB_ENV
+        run: |
+          echo "GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> $GITHUB_ENV
+          echo "TAVILY_API_KEY=${{ secrets.TAVILY_API_KEY }}" >> $GITHUB_ENV
+
 
       - name: Execute notebooks
         run: |
